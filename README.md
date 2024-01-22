@@ -116,9 +116,9 @@ git commit -m "Add this change"
 git push
 ```
 
-## Push a new branch on the remote (-u is the same as --set-upstream in git)
+Push a new branch on the remote
 ```
-git push -u origin feature1
+git push -u origin feature1 (or --set-upstream)
 ```
 
 ## The life-saver .gitignore
