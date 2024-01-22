@@ -22,7 +22,7 @@ Configure name and email:
 ```
 git config --list
 git config --global user.name 'Name Surname'
-git config --blobal user.email 'user@email.com'
+git config --global user.email 'user@email.com'
 ```
 
 ## Change your main editor (vim or Sublime suggested)
