@@ -32,7 +32,7 @@ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe
 git config --global core.editor "code --wait"
 ```
 
-## Basic commands
+## Basic commands - local changes
 ```
 touch file1.jl
 git init
@@ -48,7 +48,7 @@ git branch feature1
 git checkout feature1
 ```
 
-Now, make some changes in the branch feature1 (e.g. `"some change" >> file1.jl ; cat file1.jl`)
+Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1.jl ; cat file1.jl`)
 
 To merge, go to the main branch:
 ```
@@ -57,8 +57,47 @@ git merge feature1
 ``` 
 This kept the main branch safe until the new feature was polished.
 
-You will find conflicts while merging when working with people (even on your own). Let's resolve a conflict.
+## Resolve a conflict
+You will find conflicts while merging with other people's work. You will find conflicts even when merging your own code. Let's resolve a conflict.
 
+When merging, this is the type of message that you will see
+```
+> git merge feature1
+Auto-merging file1.jl
+CONFLICT (content): Merge conflict in file1.jl
+Automatic merge failed; fix conflicts and then commit the result.
+```
+Performing a `git status` we obtain
+```
+> git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   file1.jl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+As suggested, we need to fix the conflict in `file1.jl` and commit.
+```
+<<<<<<< HEAD
+some line in main
+=======
+some other line in feature1
+>>>>>>> feature1
+```
+`<<<<<<< HEAD` indicates the version of the branch we are in. `=======` is a delimiter. `>>>>>>> feature1` indicates the version of the branch we are trying to merge.
+
+Resolve the conflict by deleting all this text and adding the lines you want, for example:
+```
+some other line in feature1
+```
+Now, run `git add file1.jl` and `git commit -m "Fix merge conflict"` and all should be good!
+
+## Working with a remote
 All we have done until now was **local**, let's add a remote. To put these files online create an empty repo GitHub, then:
 ```
 git remote (to check if there is any remote; there should be none. -v verbose)
@@ -75,10 +114,6 @@ Make some changes, then:
 git add .
 git commit -m "Add this change"
 git push
-```
-If the repo is already online and you need to clone it:
-```
-git clone git@github.com:USERNAME/REPONAME.git
 ```
 
 ## Push a new branch on the remote (-u is the same as --set-upstream in git)
@@ -110,6 +145,7 @@ git stash clear
 > [!NOTE]
 > `HEAD` is like a local pointer to the last commit of the current branch
 ```
+git clone git@github.com:USERNAME/REPONAME.git (if the repo is online and you need to work on it)
 git log (--graph)
 git rebase (HEAD, ~, etc.)
 git reset HEAD~1 (~1 1 behind, ~2 2 behind etc.) (default to --mixed, alternatives: --soft lose commit but NOT changes, --hard lose commit AND changes)
