@@ -2,16 +2,21 @@
 
 > :warning: Run the following lines in the terminal (Linux or Mac) or Git Bash (Windows)
 
+## Preliminary
+Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
+
 ## Getting started
-https://docs.github.com/en/get-started/getting-started-with-git
+If you want a general understanding of Git, follow https://git-scm.com/book/en/v2 or https://docs.github.com/en/get-started/getting-started-with-git
 
 ## Set up SSH
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 ## GitHub workflow
-https://docs.github.com/en/get-started/quickstart/github-flow
 
-## Important concepts
+## Git workflow
+The Git philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
+
+A few important points to follow when developing a new feature are:
 1. Create a branch for a new feature
 2. Work on the feature
 3. Open pull request to merge (resolving conflicts)
@@ -38,13 +43,13 @@ touch file1.jl
 git init
 git add file1.jl
 git status
-git rm --cached file1.jl
+git restore --staged file1.jl
 git add .
 git add *.jl
 git commit
 git commit -m 'Add file1'
 git branch (list local branches)(option -r to check remote branches)
-git branch feature1
+git branch feature1 (run git branch -b feature1 to create the branch and immediately move into it without the need to run the next line)
 git checkout feature1
 ```
 
@@ -58,7 +63,7 @@ git merge feature1
 This kept the main branch safe until the new feature was polished.
 
 ## Resolve a conflict
-You will find conflicts while merging with other people's work. You will find conflicts even when merging your own code. Let's resolve a conflict.
+You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
 
 When merging, this is the type of message that you will see
 ```
@@ -81,7 +86,7 @@ Unmerged paths:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-As suggested, we need to fix the conflict in `file1.jl` and commit.
+As suggested, we must fix the conflict in `file1.jl` and commit.
 ```
 <<<<<<< HEAD
 some line in main
