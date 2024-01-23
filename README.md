@@ -11,6 +11,11 @@ If you want a general understanding of Git, follow https://git-scm.com/book/en/v
 ## Set up SSH
 This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
+## Git cheatsheet
+- https://training.github.com/downloads/github-git-cheat-sheet/
+- https://education.github.com/git-cheat-sheet-education.pdf
+- https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+
 ## GitHub workflow
 Later, we will talk about working on remotes using GitHub. When collaborating, there is an important workflow that we must adopt. The GitHub philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
 
