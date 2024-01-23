@@ -12,15 +12,16 @@ If you want a general understanding of Git, follow https://git-scm.com/book/en/v
 This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 ## GitHub workflow
+Later, we will talk about working on remotes using GitHub. When collaborating, there is an important workflow that we must adopt. The GitHub philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
 
-## Git workflow
-The Git philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
-
-A few important points to follow when developing a new feature are:
+As a recap of the important steps to follow when developing a new feature are:
 1. Create a branch for a new feature
 2. Work on the feature
 3. Open pull request to merge (resolving conflicts)
-4. Have simple tests in place to be sure everything always works in the main branch
+4. Close the merged branch
+
+> [!NOTE]
+> Have simple tests in place to be sure everything always works in the main branch
 
 ## Config setup
 Configure name and email:
@@ -30,7 +31,7 @@ git config --global user.name 'Name Surname'
 git config --global user.email 'user@email.com'
 ```
 
-## Change your main editor (vim or Sublime suggested)
+## Change your main editor
 ```
 git config --global core.editor "vim"
 git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
