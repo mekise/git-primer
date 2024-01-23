@@ -2,24 +2,27 @@
 
 > :warning: Run the all the following in the terminal (Linux or Mac) or Git Bash (Windows) unless specified otherwise!
 
-## Preliminary
+<details>
+<summary><h2>Preliminary</h2></summary>
+
+### :arrow_forward: Install Git
 Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
 
-## Getting started
+### :arrow_forward: Getting started
 If you want a general understanding of Git, follow https://git-scm.com/book/en/v2 or https://docs.github.com/en/get-started/getting-started-with-git
 
-## Set up SSH
+### :arrow_forward: Set up SSH
 This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
-## Git cheatsheet
+### :arrow_forward: Git cheatsheet
 - https://training.github.com/downloads/github-git-cheat-sheet/
 - https://education.github.com/git-cheat-sheet-education.pdf
 - https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
 
-## GitHub workflow
+### :arrow_forward: GitHub workflow
 Later, we will talk about working on remotes using GitHub. When collaborating, there is an important workflow that we must adopt. The GitHub philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
 
-As a recap of the important steps to follow when developing a new feature are:
+As a recap of the important steps to follow when developing a new feature are
 1. Create a branch for a new feature
 2. Work on the feature
 3. Open pull request to merge (resolving conflicts)
@@ -28,7 +31,12 @@ As a recap of the important steps to follow when developing a new feature are:
 > [!NOTE]
 > Have simple tests in place to be sure everything always works in the main branch
 
-## Config setup
+</details>
+
+<details>
+<summary><h2>Git configuration</h2></summary>
+
+### :arrow_forward: Config setup
 Configure name and email.
 ```
 git config --list
@@ -36,7 +44,7 @@ git config --global user.name 'Name Surname'
 git config --global user.email 'user@email.com'
 ```
 
-## Change your main editor
+### :arrow_forward: Change your main editor
 This will be the editor Git will open by default.
 ```
 git config --global core.editor "vim"
@@ -44,7 +52,12 @@ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe
 git config --global core.editor "code --wait"
 ```
 
-## Basic commands - local changes
+</details>
+
+<details>
+<summary><h2>Basic commands</h2></summary>
+
+### :arrow_forward: Basic commands - local changes
 Let's see how to create a new local project and work on it tracking it with Git.
 ```
 touch file1.jl (create a file)
@@ -65,7 +78,7 @@ Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1
 > [!IMPORTANT]  
 > Once you finished working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
 
-To merge, go to the main branch:
+To merge, go to the main branch
 ```
 git checkout main
 git merge feature1
@@ -80,7 +93,7 @@ git branch -d feature1
 > [!IMPORTANT]  
 > When we start working with a remote, we will need to close the online branch as well. You can do this running `git push origin -d feature1`.
 
-## Resolve a conflict
+### :arrow_forward: Resolve a conflict
 You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
 
 When merging, this is the type of message that you will see
@@ -114,25 +127,29 @@ some other line in feature1
 ```
 `<<<<<<< HEAD` indicates the version of the branch we are in. `=======` is a delimiter. `>>>>>>> feature1` indicates the version of the branch we are trying to merge.
 
-Resolve the conflict by deleting all this text and adding the lines you want, for example:
+Resolve the conflict by deleting all this text and adding the lines you want, for example
 ```
 some other line in feature1
 ```
 Now, run `git add file1.jl` and `git commit -m "Fix merge conflict"` and all should be good!
 
-## Working with a remote
-All we have done until now was **local**, let's add a remote. To put these files online create an empty repo GitHub, then:
+</details>
+
+<details>
+<summary><h2>Remote</h2></summary>
+
+All we have done until now was **local**, let's add a remote. To put these files online create an empty repo GitHub, then
 ```
 git remote (to check if there is any remote; there should be none. -v verbose)
 git remote add origin git@github.com:USERNAME/REPONAME.git
 git push -u origin main
 ``` 
-From now on, you can use pull and push to communicate with the remote:
+From now on, you can use pull and push to communicate with the remote
 ```
 git status
 git pull (= git fetch; git merge)
 ```
-Make some changes, then:
+Make some changes, then
 ```
 git add .
 git commit -m "Add this change"
@@ -145,8 +162,12 @@ git branch -r (to list the branches on the remote)
 git push -u origin feature1 (to push a new branch on the remote)
 git push -d origin feature1 (to close a branch on the remote)
 ```
+</details>
 
-## The life-saver .gitignore
+<details>
+<summary><h2>Other useful stuff</h2></summary>
+
+### :arrow_forward: The life-saver .gitignore
 ```
 touch .gitignore
 ```
@@ -156,7 +177,7 @@ Add some entries e.g. directories, extensions, etc.
 *.txt
 ```
 
-## Stashing
+### :arrow_forward: Stashing
 ```
 git stash push -m "Some change here and there" (or simply git stash)
 git stash apply # (where # is the index)
@@ -166,7 +187,7 @@ git stash pop #
 git stash clear
 ```
 
-## Other commands
+### :arrow_forward: Other commands
 > [!NOTE]
 > `HEAD` is like a local pointer to the last commit of the current branch
 ```
@@ -176,3 +197,5 @@ git rebase (HEAD, ~, etc.)
 git reset HEAD~1 (~1 1 behind, ~2 2 behind etc.) (default to --mixed, alternatives: --soft lose commit but NOT changes, --hard lose commit AND changes)
 git remote (list all the remote names)
 ```
+
+</details>
