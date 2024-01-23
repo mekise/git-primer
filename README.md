@@ -1,6 +1,6 @@
 # git-primer
 
-> :warning: Run the following lines in the terminal (Linux or Mac) or Git Bash (Windows)
+> :warning: Run the all the following in the terminal (Linux or Mac) or Git Bash (Windows) unless specified otherwise!
 
 ## Preliminary
 Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
@@ -24,7 +24,7 @@ As a recap of the important steps to follow when developing a new feature are:
 > Have simple tests in place to be sure everything always works in the main branch
 
 ## Config setup
-Configure name and email:
+Configure name and email.
 ```
 git config --list
 git config --global user.name 'Name Surname'
@@ -32,6 +32,7 @@ git config --global user.email 'user@email.com'
 ```
 
 ## Change your main editor
+This will be the editor Git will open by default.
 ```
 git config --global core.editor "vim"
 git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
@@ -39,8 +40,9 @@ git config --global core.editor "code --wait"
 ```
 
 ## Basic commands - local changes
+Let's see how to create a new local project and work on it tracking it with Git.
 ```
-touch file1.jl
+touch file1.jl (create a file)
 git init
 git add file1.jl
 git status
@@ -50,18 +52,20 @@ git add *.jl
 git commit
 git commit -m 'Add file1'
 git branch (list local branches)(option -r to check remote branches)
-git branch feature1 (run git branch -b feature1 to create the branch and immediately move into it without the need to run the next line)
-git checkout feature1
+git branch feature1
+git checkout feature1 (run `git chekout -b feature1` to create the branch and immediately move into it without the need to run the previous line)
 ```
-
 Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1.jl ; cat file1.jl`)
+
+> [!IMPORTANT]  
+> Once you finished working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
 
 To merge, go to the main branch:
 ```
 git checkout main
 git merge feature1
 ``` 
-This kept the main branch safe until the new feature was polished.
+This kept the main branch safe until the new feature was polished. Now, we have the new feature in the main branch as well.
 
 ## Resolve a conflict
 You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
