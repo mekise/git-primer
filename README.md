@@ -43,7 +43,7 @@ git config --global user.name 'Name Surname'
 git config --global user.email 'user@email.com'
 ```
 
-### :arrow_forward: Change your main editor
+### :arrow_forward: Config main editor
 This will be the editor Git will open by default.
 ```
 git config --global core.editor "vim"
@@ -56,7 +56,7 @@ git config --global core.editor "code --wait"
 <details>
 <summary><h2>Basic commands</h2></summary>
 
-### :arrow_forward: Basic commands - local changes
+### :arrow_forward: Start working with Git
 Let's see how to create a new local project and work on it tracking it with Git.
 ```
 touch file1.jl (create a file)
