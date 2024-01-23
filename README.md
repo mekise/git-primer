@@ -28,8 +28,7 @@ As a recap of the important steps to follow when developing a new feature are
 3. Open pull request to merge (resolving conflicts)
 4. Close the merged branch
 
-> [!NOTE]
-> Have simple tests in place to be sure everything always works in the main branch
+> :spiral_notepad: Have simple tests in place to be sure everything always works in the main branch
 
 </details>
 
@@ -75,8 +74,7 @@ git checkout feature1 (run `git chekout -b feature1` to create the branch and im
 ```
 Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1.jl ; cat file1.jl`)
 
-> [!IMPORTANT]  
-> Once you finished working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
+> :warning: Once you finished working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
 
 To merge, go to the main branch
 ```
@@ -90,8 +88,7 @@ Once merged, you can should delete the branch to avoid accidental use.
 git branch -d feature1
 ```
 
-> [!IMPORTANT]  
-> When we start working with a remote, we will need to close the online branch as well. You can do this running `git push origin -d feature1`.
+> :warning: When we start working with a remote, we will need to close the online branch as well. You can do this running `git push origin -d feature1`.
 
 ### :arrow_forward: Resolve a conflict
 You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
@@ -188,8 +185,7 @@ git stash clear
 ```
 
 ### :arrow_forward: Other commands
-> [!NOTE]
-> `HEAD` is like a local pointer to the last commit of the current branch
+> :spiral_notepad: `HEAD` is like a local pointer to the last commit of the current branch
 ```
 git clone git@github.com:USERNAME/REPONAME.git (if the repo is online and you need to work on it)
 git log (--graph)
