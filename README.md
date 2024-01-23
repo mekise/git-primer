@@ -67,6 +67,14 @@ git merge feature1
 ``` 
 This kept the main branch safe until the new feature was polished. Now, we have the new feature in the main branch as well.
 
+Once merged, you can should delete the branch to avoid accidental use.
+```
+git branch -d feature1
+```
+
+> [!IMPORTANT]  
+> When we start working with a remote, we will need to close the online branch as well. You can do this running `git push origin -d feature1`.
+
 ## Resolve a conflict
 You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
 
@@ -126,9 +134,11 @@ git commit -m "Add this change"
 git push
 ```
 
-Push a new branch on the remote
+Here, some commands to work with the branches on the remote
 ```
-git push -u origin feature1 (or --set-upstream)
+git branch -r (to list the branches on the remote)
+git push -u origin feature1 (to push a new branch on the remote)
+git push -d origin feature1 (to close a branch on the remote)
 ```
 
 ## The life-saver .gitignore
