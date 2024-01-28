@@ -1,17 +1,17 @@
 # git-primer
 
-> :warning: Run the all the following in the terminal (Linux or Mac) or Git Bash (Windows) unless specified otherwise!
+> ⚠️ Run all the following in the terminal (Linux or Mac) or Git Bash (Windows) unless specified otherwise!
 
 <details>
 <summary><h2>Preliminary</h2></summary>
 
-### :arrow_forward: Getting started
+### ▶️ Getting started
 If you want a general understanding of Git, follow https://git-scm.com/book/en/v2 or https://docs.github.com/en/get-started/getting-started-with-git
 
-### :arrow_forward: Install Git
-Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
+### ▶️ Install Git
+Make sure you have Git installed. On Linux and Mac, open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
 
-### :arrow_forward: Set up SSH
+### ▶️ Set up SSH
 This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 <details>
@@ -30,28 +30,29 @@ Here is a recap of the steps to follow to set up an SSH key for GitHub
 
 </details>
 
-### :arrow_forward: Git cheatsheet
+### ▶️ Git cheatsheet
 - https://training.github.com/downloads/github-git-cheat-sheet/
 - https://education.github.com/git-cheat-sheet-education.pdf
 - https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
 
-### :arrow_forward: GitHub workflow
+### ▶️ GitHub workflow
 Later, we will talk about working on remotes using GitHub. When collaborating, there is an important workflow that we must adopt. The GitHub philosophy of workflow is quite simple, you find it here https://docs.github.com/en/get-started/quickstart/github-flow
 
-As a recap of the important steps to follow when developing a new feature are
+Recap of the important steps to follow when developing a new feature
 1. Create a branch for a new feature
 2. Work on the feature
-3. Open pull request to merge (resolving conflicts)
-4. Close the merged branch
+3. Open a pull request to merge
+4. Merge resolving conflicts
+5. Close the merged branch
 
-> :spiral_notepad: Have simple tests in place to be sure everything always works in the main branch
+> 🗒️ Have simple tests in place to be sure everything always works in the main branch
 
 </details>
 
 <details>
 <summary><h2>Git configuration</h2></summary>
 
-### :arrow_forward: Config setup
+### ▶️ Config setup
 Configure name and email.
 ```
 git config --list
@@ -59,7 +60,7 @@ git config --global user.name 'Name Surname'
 git config --global user.email 'user@email.com'
 ```
 
-### :arrow_forward: Config main editor
+### ▶️ Config main editor
 This will be the editor Git will open by default.
 ```
 git config --global core.editor "vim"
@@ -72,7 +73,7 @@ git config --global core.editor "code --wait"
 <details>
 <summary><h2>Basic commands</h2></summary>
 
-### :arrow_forward: Start working with Git
+### ▶️ Start working with Git
 Let's see how to create a new local project and work on it tracking it with Git.
 ```
 touch file1.jl (create a file)
@@ -90,7 +91,7 @@ git checkout feature1 (run `git chekout -b feature1` to create the branch and im
 ```
 Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1.jl ; cat file1.jl`)
 
-> :warning: Once you finished working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
+> ⚠️ Once you finish working on the feature, you need to add it and commit it to the branch. If you checkout to a different branch before committing, all the uncommitted work you have done will be carried over to the branch you are now in.
 
 To merge, go to the main branch
 ```
@@ -104,10 +105,10 @@ Once merged, you can should delete the branch to avoid accidental use.
 git branch -d feature1
 ```
 
-> :warning: When we start working with a remote, we will need to close the online branch as well. You can do this running `git push origin -d feature1`.
+> ⚠️ When we start working with a remote, we will also need to close the online branch. You can do this by running `git push origin -d feature1`.
 
-### :arrow_forward: Resolve a conflict
-You will find conflicts while merging with other people's work. Sometimes, you will even find conflicts when merging your own code. Let's resolve a conflict.
+### ▶️ Resolve a conflict
+You will find conflicts while merging with other people's work. Let's resolve a conflict.
 
 When merging, this is the type of message that you will see
 ```
@@ -151,7 +152,7 @@ Now, run `git add file1.jl` and `git commit -m "Fix merge conflict"` and all sho
 <details>
 <summary><h2>Remote</h2></summary>
 
-All we have done until now was **local**, let's add a remote. To put these files online create an empty repo GitHub, then
+All we have done until now was **local**, let's add a remote. To put these files online create an empty repo on GitHub, then
 ```
 git remote (to check if there is any remote; there should be none. -v verbose)
 git remote add origin git@github.com:USERNAME/REPONAME.git
@@ -169,7 +170,7 @@ git commit -m "Add this change"
 git push
 ```
 
-Here, some commands to work with the branches on the remote
+Here, are some commands to work with the branches on the remote
 ```
 git branch -r (to list the branches on the remote)
 git push -u origin feature1 (to push a new branch on the remote)
@@ -180,7 +181,7 @@ git push -d origin feature1 (to close a branch on the remote)
 <details>
 <summary><h2>Other useful stuff</h2></summary>
 
-### :arrow_forward: The life-saver .gitignore
+### ▶️ The life-saver .gitignore
 ```
 touch .gitignore
 ```
@@ -190,7 +191,7 @@ Add some entries e.g. directories, extensions, etc.
 *.txt
 ```
 
-### :arrow_forward: Stashing
+### ▶️ Stashing
 ```
 git stash push -m "Some change here and there" (or simply git stash)
 git stash apply # (where # is the index)
@@ -200,8 +201,8 @@ git stash pop #
 git stash clear
 ```
 
-### :arrow_forward: Other commands
-> :spiral_notepad: `HEAD` is like a local pointer to the last commit of the current branch
+### ▶️ Other commands
+> 🗒️ `HEAD` is like a local pointer to the last commit of the current branch
 ```
 git clone git@github.com:USERNAME/REPONAME.git (if the repo is online and you need to work on it)
 git log (--graph)
