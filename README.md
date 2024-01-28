@@ -5,14 +5,31 @@
 <details>
 <summary><h2>Preliminary</h2></summary>
 
-### :arrow_forward: Install Git
-Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
-
 ### :arrow_forward: Getting started
 If you want a general understanding of Git, follow https://git-scm.com/book/en/v2 or https://docs.github.com/en/get-started/getting-started-with-git
 
+### :arrow_forward: Install Git
+Make sure you have Git installed. On Linux and Mac, just open the terminal and run `git --version`. This should give you the version you have installed. On Windows check if you have the application `Git bash`. If not, install Git from this link https://git-scm.com/download/win
+
 ### :arrow_forward: Set up SSH
 This might be a tricky one, every step and word counts. Follow this guide, **word-by-word** https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+<details>
+<summary>Windows</summary>
+	
+Here is a recap of the steps to follow to set up an SSH key for GitHub
+1. Open Git Bash and run `cd .ssh`
+2. Run `ssh-keygen -t ed25519 -C "user@email.com"`. You are asked to `Enter file in which to save the key` -> write `gitbash` and press Enter. Then, you asked for a password two times. Please, set one and remember it
+3. Open Windows PowerShell as Administrator
+4. Run the following commands `Get-Service -Name ssh-agent | Set-Service -StartupType Manual`, then `Start-Service ssh-agent`, and finally `ssh-add c:/Users/username/.ssh/gitbash` (replace `username` with the appropriate entry). If the last command does not work, replace the slashes `/` with backslashes `\`
+5. Run `cat ~/.ssh/gitbash.pub` and copy the string you get in return
+6. Go into the settings of your GitHub account, and then select **SSH and GPG keys**
+7. Select **New SSH key**, give it a title (e.g. "work-laptop"), and paste the string you copied earlier
+8. Click on **Add SSH key**
+9. Run `ssh -T git@github.com`
+10. Hopefully, you get a successful message back. If so, you are ready to go.
+
+</details>
 
 ### :arrow_forward: Git cheatsheet
 - https://training.github.com/downloads/github-git-cheat-sheet/
