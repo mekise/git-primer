@@ -20,14 +20,13 @@ This might be a tricky one, every step and word counts. Follow this guide, **wor
 Here is a recap of the steps to follow to set up an SSH key for GitHub
 1. Open Git Bash and run `cd .ssh`
 2. Run `ssh-keygen -t ed25519 -C "user@email.com"`. You are asked to `Enter file in which to save the key` -> write `gitbash` and press Enter. Then, you asked for a password two times. Please, set one and remember it
-3. Open Windows PowerShell as Administrator
-4. Run the following commands `Get-Service -Name ssh-agent | Set-Service -StartupType Manual`, then `Start-Service ssh-agent`, and finally `ssh-add c:/Users/username/.ssh/gitbash` (replace `username` with the appropriate entry). If the last command does not work, replace the slashes `/` with backslashes `\`
-5. Run `cat ~/.ssh/gitbash.pub` and copy the string you get in return
-6. Go into the settings of your GitHub account, and then select **SSH and GPG keys**
-7. Select **New SSH key**, give it a title (e.g. "work-laptop"), and paste the string you copied earlier
-8. Click on **Add SSH key**
-9. Run `ssh -T git@github.com`
-10. Hopefully, you get a successful message back. If so, you are ready to go.
+3. (⚠️ Only this step is on Windows Powershell! Also, run the shell as administrator!) Open Windows PowerShell as Administrator and run the following commands `Get-Service -Name ssh-agent | Set-Service -StartupType Manual`, then `Start-Service ssh-agent`, and finally `ssh-add c:/Users/username/.ssh/gitbash` replacing `username` with the name of you pc user. If the last command does not work, replace the slashes `/` with backslashes `\`
+4. Return to Git Bash, run `cat ~/.ssh/gitbash.pub`, and copy the string you get in return
+5. Go into the settings of your GitHub account (online) and go into **SSH and GPG keys**
+6. Click **New SSH key**, give it a title (e.g. "work-laptop"), and paste the string you copied earlier
+7. Click on **Add SSH key**
+8. Return to Git Bash and run `ssh -T git@github.com`
+9. Hopefully, you get a successful message back. If so, you are ready to go.
 
 </details>
 
