@@ -77,16 +77,15 @@ git config --global core.editor "code --wait"
 Let's see how to create a new local project and work on it tracking it with Git.
 ```
 touch file1.jl (create a file)
-git init
-git add file1.jl
-git status
-git restore --staged file1.jl
-git add .
-git add *.jl
-git commit
-git commit -m 'Add file1'
-git branch (list local branches)(option -r to check remote branches)
-git branch feature1
+git init (start tracking with Git)
+git add file1.jl (add file1.jl to the staging area)
+git status (check the status your folder is in)
+git restore --staged file1.jl (remove file1.jl from the staging area)
+git add . (add all files to the staging area)
+git add *.jl (add all files with .jl extension to the staging area)
+git commit -m 'Add file1' (commit what is in the staging area)
+git branch (list local branches. use option -r to check remote branches)
+git branch feature1 (create branch feature1)
 git checkout feature1 (run `git chekout -b feature1` to create the branch and immediately move into it without the need to run the previous line)
 ```
 Now, make some changes in the branch feature1 (e.g. `echo "some change" >> file1.jl ; cat file1.jl`)
@@ -100,7 +99,7 @@ git merge feature1
 ``` 
 This kept the main branch safe until the new feature was polished. Now, we have the new feature in the main branch as well.
 
-Once merged, you can should delete the branch to avoid accidental use.
+Once merged, you should delete the branch to avoid accidental use.
 ```
 git branch -d feature1
 ```
